@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #548687;
+    text-align: center ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cantainer{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+}
+
+.game{
+    height:60vmin;
+    width: 60vmin;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:1.5vmin;
+    margin-bottom: 2rem;
+}
+
+.box{
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9c46a;
+    /* box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6); */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 8vmin;
+    color: rgb(65, 20, 20);
+    background-color: #ffffc7;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.box:hover {
+    background-color: #f4a261;
+    transform: scale(1.1);
+}
+
+/* Winning line styles */
+.box.win {
+    position: relative;
+}
+
+.box.win::before {
+    content: '';
+    position: absolute;
+    background-color: red;
+    z-index: 1;
+}
+
+.box.win.horizontal::before {
+    height: 4px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.box.win.vertical::before {
+    width: 4px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.box.win.diagonal-right::before {
+    width: 140%;
+    height: 4px;
+    top: 50%;
+    left: -20%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.box.win.diagonal-left::before {
+    width: 140%;
+    height: 4px;
+    top: 50%;
+    left: -20%;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.box.x {
+    color: #51e756; /* Color for X */
+}
+
+.box.o {
+    color: #2a9d8f; /* Color for O */
+}
+
+
+
+#ResetBtn{
+
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background-color: rgb(37, 31, 31);
+    color: white;
+    border-radius: 1rem;
+    border: none;
+
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+} 
+
+#New-btn{
+
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background-color: rgb(37, 31, 31);
+    color: white;
+    border-radius: 1rem;
+    border: none;
+
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#ResetBtn:hover, #New-btn:hover {
+    background-color: #e76f51;
+    transform: scale(1.05);
+}
+
+#msg{
+    color: #ffffc7;
+    font-size: 5vmin;
+}
+
+.msg-container{
+    height: 100vmin;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.hide{
+    display: none;
+}
